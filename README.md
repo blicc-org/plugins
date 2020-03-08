@@ -55,4 +55,6 @@ To deploy a plugin you just need to run the following command:
 
     yarn deploy
 
-If the credentials are correct and the command has been successfully executed, you will then find the plugins in the application itself.
+If the command has been successfully executed, you will then find the plugins in the application itself.
+
+> Make sure to set proper environment variables first.
