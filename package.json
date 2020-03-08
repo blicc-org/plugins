@@ -24,7 +24,7 @@
     "rollup-plugin-replace": "^2.2.0"
   },
   "scripts": {
-    "start": "start-storybook -p 6006",
+    "start": "yarn && start-storybook -p 6006",
     "build": "rollup -c rollup.config.js",
     "build:storyboard": "build-storybook",
     "build:scripts": "babel ./scripts -d ./build && babel ./src -d ./build/es5",

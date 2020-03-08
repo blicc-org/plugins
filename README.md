@@ -1,36 +1,40 @@
-## Plugin Development
+# Plugin Development
 
-### What is required?
+This repository is a boilerplate for developing plugins to visualize data in [Blicc](https://blicc.org). 
 
-You need to have the following dependencies installed to be able to follow this guide.
+## Quick start guide
 
-* [Git version 2 or higher](https://git-scm.com/downloads)
-* [Node version 12 or higher](https://nodejs.org/en/download/)
-* [Yarn version 1.19 or higher](https://yarnpkg.com/lang/en/docs/install/#mac-stable)
+### Prerequisites
+You need to have [Git](https://git-scm.com/downloads), 
+[Node.js](https://nodejs.org/en/download/) and [Yarn](https://classic.yarnpkg.com/en/docs/install) installed to be able to run and build the project.
 
-### How to setup the project?
+#### Versions
+A greater or equal version of the listed softwares is required.
+* Git 2.21.1
+* Node.js 12.13.1
+* Yarn 1.19.2
+### Clone
+If you haven't already cloned the repository within the monorepo, simply use the following command:
 
-First of all you need to clone the plugin boilerplate repository from github.
+    git clone git@github.com:blicc-org/plugins.git
 
-```sh
-git clone https://github.com/blicc-org/plugins.git
-```
+### Environment variables
+To set the environment variables you simply need to make a copy of the `.env.example`
+file and name it `.env`.
 
-Install all your node module dependencies.
+> Changing the environment variables enables you to also deploy your plugins to an production environment.
 
-```sh
-yarn 
-```
+### Setup
+For developing visualization plugins blicc uses the open source development tool [Storybook](https://storybook.js.org/). To set up the environment run the following command: 
 
-Create a `.env` file inside the root directory of your project and set the environment variables like the following. If you do not have a blicc developer account yet, you need to request one [here](mailto:help@blicc.org?subject=[DevAccount]%20Request).
+    yarn start
 
-```sh
-ADMIN_MAIL='your@email.com'
-ADMIN_PASSWORD='your_password'
-SERVER='https://api.blicc.org'
-```
+### Access
+Once the development setup is running you can access your plugins under the following link:
 
-### How to develop the plugin?
+* [Development Suite](http://localhost:9090)
+
+### Development
 
 You will find the following simple plugin example in `/src/bundle/plugin/Plugin.js`. 
 
@@ -45,20 +49,10 @@ export function Plugin(
 }
 ```
 
-To start the development server, just run this.
+### Deploy
 
-```
-yarn start
-```
+To deploy a plugin you just need to run the following command:
 
-Now you can go to [http://localhost:6006/](http://localhost:6006/) and view your plugin. The boilerplate uses `storybook` to display the plugins in the browser. You can now edit your plugin and watch the browser respond to it.
+    yarn deploy
 
-### How to deploy the plugin?
-
-To deploy a plugin you just need to run the following command.
-
-```sh
-yarn deploy
-```
-
-Go to [blicc.org](https://blicc.org) and use your new plugin!
+If the credentials are correct and the command has been successfully executed, you will then find the plugins in the application itself.
