@@ -49,6 +49,8 @@ export function Plugin(
 }
 ```
 
+> You can either return a HTML string or a HTML-object.
+
 ### Deploy
 
 To deploy a plugin you just need to run the following command:
@@ -57,4 +59,4 @@ To deploy a plugin you just need to run the following command:
 
 If the command has been successfully executed, you will then find the plugins in the application itself.
 
-> Make sure to set proper environment variables first.
+> Make sure to set proper environment variables.
