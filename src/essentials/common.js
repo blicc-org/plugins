@@ -5,6 +5,14 @@ export const options = {
 }
 
 export const colorPalette = [
+  '#5fe3c7',
+  '#e466ba',
+  '#2e2eda',
+  '#f6dfcd',
+  '#5fc3e3',
+  '#e46681',
+  '#7a2eda',
+  '#f6f1cd',
   '#fbdda0',
   '#0c5374',
   '#ee7470',
