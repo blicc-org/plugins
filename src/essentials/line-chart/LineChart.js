@@ -59,10 +59,14 @@ export function LineChart(
     options: {
       ...options,
       scales,
+      title: {
+        display: true,
+      },
     },
   })
 
   onDataUpdate(updatedData => {
+    chart.options.title.text = updatedData.title || ''
     chart.data = addStyles(updatedData)
     chart.update()
   })
