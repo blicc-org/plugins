@@ -60,7 +60,7 @@ export function LineChart(
       ...options,
       scales,
       title: {
-        display: true,
+        display: false,
       },
     },
   })
