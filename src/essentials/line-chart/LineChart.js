@@ -66,7 +66,7 @@ export function LineChart(
   })
 
   onDataUpdate(updatedData => {
-    chart.options.title.text = updatedData.title || ""
+    chart.options.title.text = updatedData.title || ''
     chart.data = addStyles(updatedData)
     chart.update()
   })
