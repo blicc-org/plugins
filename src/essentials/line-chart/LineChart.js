@@ -61,20 +61,12 @@ export function LineChart(
       scales,
       title: {
         display: true,
-<<<<<<< HEAD
       },
-=======
-      }
->>>>>>> e510fd712906e0be13a3db09e6fcfade1f287cde
     },
   })
 
   onDataUpdate(updatedData => {
-<<<<<<< HEAD
-    chart.options.title.text = updatedData.title || ''
-=======
     chart.options.title.text = updatedData.title || ""
->>>>>>> e510fd712906e0be13a3db09e6fcfade1f287cde
     chart.data = addStyles(updatedData)
     chart.update()
   })
