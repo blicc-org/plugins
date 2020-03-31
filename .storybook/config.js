@@ -3,7 +3,7 @@ import { configure, addDecorator } from '@storybook/html'
 // automatically import all files ending in *.stories.js
 configure(require.context('../src', true, /\.stories\.js$/), module)
 
-addDecorator(story => {
+addDecorator((story) => {
   const div = document.createElement('div')
   div.style.width = '600px'
   div.style.height = '400px'

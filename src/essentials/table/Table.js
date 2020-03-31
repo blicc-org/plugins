@@ -12,13 +12,13 @@ export function Table(
     if (inputData && inputData.labels && inputData.datasets) {
       var tr = ref.insertRow()
       inputData.labels.forEach(
-        label => (tr.insertCell().outerHTML = '<th>' + label + '</th>')
+        (label) => (tr.insertCell().outerHTML = '<th>' + label + '</th>')
       )
 
-      inputData.datasets.forEach(dataset => {
+      inputData.datasets.forEach((dataset) => {
         var tr = ref.insertRow()
         if (dataset.data) {
-          dataset.data.forEach(item => {
+          dataset.data.forEach((item) => {
             tr.insertCell().innerText = item
           })
         }
@@ -28,7 +28,7 @@ export function Table(
 
   fillTable(table, data)
 
-  onDataUpdate(updatedData => {
+  onDataUpdate((updatedData) => {
     fillTable(table, updatedData)
   })
 

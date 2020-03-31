@@ -28,7 +28,7 @@ export function BarChart(
     },
   })
 
-  onDataUpdate(updatedData => {
+  onDataUpdate((updatedData) => {
     chart.data = addStyles(updatedData)
     chart.update()
   })

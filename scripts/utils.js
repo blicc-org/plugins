@@ -19,7 +19,7 @@ export async function setChart(baseUrl, inputData, cookie) {
       Cookie: cookie,
     },
   })
-  currentCharts.charts.forEach(chart => {
+  currentCharts.charts.forEach((chart) => {
     if (chart.slug === slug && chart.key === key) id = chart.id
   })
 
@@ -59,22 +59,24 @@ export async function getCookie(baseUrl, email, password) {
   })
 
   const cookies = response.headers['set-cookie']
-  return cookies.find(cookie => cookie.startsWith('access_token')).split(';')[0]
+  return cookies
+    .find((cookie) => cookie.startsWith('access_token'))
+    .split(';')[0]
 }
 
 export async function getMetaInfo(path) {
   return fs
     .readdirSync(path, { withFileTypes: true })
-    .filter(dirent => !dirent.isDirectory())
+    .filter((dirent) => !dirent.isDirectory())
     .map(({ name }) => {
       const fileExports = require(path + name)
       const { title: bundle, meta = {} } = fileExports['default']
-      const keys = Object.keys(fileExports).filter(exp => exp !== 'default')
+      const keys = Object.keys(fileExports).filter((exp) => exp !== 'default')
       return {
         name,
         bundle,
         slug: slug(bundle),
-        plugins: keys.map(key => {
+        plugins: keys.map((key) => {
           const title = meta[key] && meta[key].title ? meta[key].title : key
           const description =
             meta[key] && meta[key].description ? meta[key].description : ''

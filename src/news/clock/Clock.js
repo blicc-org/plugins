@@ -33,7 +33,7 @@ export function Clock(
 
   drawClock(clock, data)
 
-  onDataUpdate(updatedData => {
+  onDataUpdate((updatedData) => {
     drawClock(clock, updatedData)
   })
 

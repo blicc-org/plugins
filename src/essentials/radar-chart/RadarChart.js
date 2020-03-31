@@ -16,7 +16,7 @@ export function RadarChart(
     options,
   })
 
-  onDataUpdate(updatedData => {
+  onDataUpdate((updatedData) => {
     chart.data = addStyles(updatedData)
     chart.update()
   })
