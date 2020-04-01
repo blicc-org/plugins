@@ -5,11 +5,9 @@ export const options = {
 }
 
 export const colorPalette = [
-  '#fbdda0',
-  '#0c5374',
-  '#ee7470',
-  '#7fcaa3',
-  '#7a226e',
+  '#14148d',
+  '#df209f',
+  '#22d0ab',
   '#199098',
   '#848482',
   '#3b865a',
@@ -25,6 +23,7 @@ export const colorPalette = [
   '#624628',
   '#d36034',
   '#2f3c29',
+  '#22d0ab',
 ]
 
 export function hexToRgbaString(hex, alpha) {
