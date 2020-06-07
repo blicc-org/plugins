@@ -4,6 +4,8 @@ import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-replace'
 import minify from 'rollup-plugin-babel-minify'
 
+const extensions = ['.js', '.jsx', '.ts', '.tsx']
+
 const config = {
   input: 'src/bundle.js',
   output: {
@@ -12,12 +14,16 @@ const config = {
     name: 'bundle',
   },
   plugins: [
-    resolve(),
-    babel({
-      exclude: 'node_modules/**',
+    resolve({
+      extensions,
     }),
     commonjs({
       include: 'node_modules/**',
+    }),
+    babel({
+      extensions,
+      include: ['src/**/*'],
+      exclude: 'node_modules/**',
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
@@ -35,7 +41,7 @@ const config = {
 export default [
   {
     ...config,
-    input: 'src/bundle.stories.js',
+    input: 'src/bundle.stories.ts',
     output: {
       dir: 'build/bundles',
       format: 'esm',
@@ -43,7 +49,7 @@ export default [
   },
   {
     ...config,
-    input: 'src/essentials.stories.js',
+    input: 'src/essentials.stories.ts',
     output: {
       dir: 'build/bundles',
       format: 'esm',
@@ -51,7 +57,7 @@ export default [
   },
   {
     ...config,
-    input: 'src/news.stories.js',
+    input: 'src/news.stories.ts',
     output: {
       dir: 'build/bundles',
       format: 'esm',

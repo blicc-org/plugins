@@ -1,14 +1,20 @@
 import Chart from 'chart.js'
 import { options, colorPalette } from '../common'
 
+type Data = any
+type Settings = any
+type Callback = (data: Data) => void
+type OnDataUpdate = (callback: Callback) => void
+type SetSettings = (settings: Settings) => void
+
 export function PieChart(
-  data = [],
-  onDataUpdate = () => {},
-  settings = {},
-  setSettings = () => {}
+  data: Data,
+  onDataUpdate: OnDataUpdate = () => {},
+  settings: Settings,
+  setSettings: SetSettings = () => {}
 ) {
   const canvas = document.createElement('canvas')
-  const ctx = canvas.getContext('2d')
+  const ctx: any = canvas.getContext('2d')
 
   const chart = new Chart(ctx, {
     type: 'pie',
@@ -16,7 +22,7 @@ export function PieChart(
     options,
   })
 
-  onDataUpdate((updatedData) => {
+  onDataUpdate((updatedData: Data) => {
     chart.data = addStyles(updatedData)
     chart.update()
   })
@@ -24,9 +30,9 @@ export function PieChart(
   return canvas
 }
 
-function addStyles(data) {
+function addStyles(data: Data) {
   if (!data.datasets) return data
-  const datasets = data.datasets.map((dataset) => {
+  const datasets = data.datasets.map((dataset: any) => {
     return {
       ...dataset,
       backgroundColor: colorPalette,

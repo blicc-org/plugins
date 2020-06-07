@@ -1,17 +1,23 @@
 import Chart from 'chart.js'
 import { options, colorPalette } from '../common'
 
+type Data = any
+type Settings = any
+type Callback = (data: Data) => void
+type OnDataUpdate = (callback: Callback) => void
+type SetSettings = (settings: Settings) => void
+
 export function LineChart(
-  data = [],
-  onDataUpdate = () => {},
-  settings = {},
-  setSettings = () => {}
+  data: Data,
+  onDataUpdate: OnDataUpdate = () => {},
+  settings: Settings,
+  setSettings: SetSettings = () => {}
 ) {
   const type = 'line'
   const canvas = document.createElement('canvas')
-  const ctx = canvas.getContext('2d')
+  const ctx: any = canvas.getContext('2d')
 
-  let scales = {
+  let scales: any = {
     yAxis: [
       {
         stacked: true,
@@ -53,7 +59,7 @@ export function LineChart(
     }
   }
 
-  const chart = new Chart(ctx, {
+  const chart: any = new Chart(ctx, {
     type,
     data: addStyles(data),
     options: {
@@ -65,7 +71,7 @@ export function LineChart(
     },
   })
 
-  onDataUpdate((updatedData) => {
+  onDataUpdate((updatedData: Data) => {
     chart.options.title.text = updatedData.title || ''
     chart.data = addStyles(updatedData)
     chart.update()
@@ -74,9 +80,9 @@ export function LineChart(
   return canvas
 }
 
-function addStyles(data) {
+function addStyles(data: Data) {
   if (!data.datasets) return data
-  const datasets = data.datasets.map((dataset, index) => {
+  const datasets = data.datasets.map((dataset: any, index: number) => {
     return {
       ...dataset,
       backgroundColor: colorPalette[index],

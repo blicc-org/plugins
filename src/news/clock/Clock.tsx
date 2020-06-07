@@ -1,8 +1,14 @@
+type Data = any
+type Settings = any
+type Callback = (data: Data) => void
+type OnDataUpdate = (callback: Callback) => void
+type SetSettings = (settings: Settings) => void
+
 export function Clock(
-  data = [],
-  onDataUpdate = () => {},
-  settings = {},
-  setSettings = () => {}
+  data: Data,
+  onDataUpdate: OnDataUpdate = () => {},
+  settings: Settings,
+  setSettings: SetSettings = () => {}
 ) {
   const clock = document.createElement('h1')
   clock.style.fontFamily = 'digital-7,Charcoal,sans-serif'
@@ -11,10 +17,10 @@ export function Clock(
   clock.style.alignItems = 'center'
   clock.style.fontWeight = 'bold'
   clock.style.height = '100%'
-  clock.style.padding = 0
-  clock.style.margin = 0
+  clock.style.padding = '0'
+  clock.style.margin = '0'
 
-  function formatTime(d) {
+  function formatTime(d: any) {
     let hours = d.getHours()
     let minutes = d.getMinutes()
     const ampm = hours >= 12 ? 'PM' : 'AM'
@@ -25,7 +31,7 @@ export function Clock(
     return time
   }
 
-  function drawClock(ref, inputData) {
+  function drawClock(ref: any, inputData: any) {
     if (inputData && inputData.datasets[0] && inputData.datasets[0].data[0]) {
       ref.innerHTML = formatTime(new Date(inputData.datasets[0].data[0]))
     }
@@ -33,7 +39,7 @@ export function Clock(
 
   drawClock(clock, data)
 
-  onDataUpdate((updatedData) => {
+  onDataUpdate((updatedData: Data) => {
     drawClock(clock, updatedData)
   })
 

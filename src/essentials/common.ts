@@ -1,10 +1,10 @@
-export const options = {
+export const options: any = {
   responsive: true,
   maintainAspectRatio: false,
   animation: false,
 }
 
-export const colorPalette = [
+export const colorPalette: any = [
   '#14148d',
   '#4a5def',
   '#22d0ab',
@@ -24,8 +24,8 @@ export const colorPalette = [
   '#22d0ab',
 ]
 
-export function hexToRgbaString(hex, alpha) {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+export function hexToRgbaString(hex: string, alpha: string) {
+  const result: any = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   const rgb = {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
